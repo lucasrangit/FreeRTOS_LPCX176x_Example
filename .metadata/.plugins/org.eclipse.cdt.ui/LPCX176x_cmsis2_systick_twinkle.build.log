@@ -1,0 +1,7 @@
+17:47:41 **** Clean-only build of configuration Debug for project LPCX176x_cmsis2_systick_twinkle ****
+make clean 
+rm -rf  ./src/cr_startup_lpc176x.o ./src/leds.o ./src/systick_twinkle.o  ./src/cr_startup_lpc176x.d ./src/leds.d ./src/systick_twinkle.d  LPCX176x_cmsis2_systick_twinkle.axf
+ 
+
+17:47:41 Build Finished (took 54ms)
+

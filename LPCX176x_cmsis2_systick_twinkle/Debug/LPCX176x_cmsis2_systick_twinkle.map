@@ -1,0 +1,362 @@
+Archive member included because of file (symbol)
+
+/home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                              ./src/cr_startup_lpc176x.o (SystemInit)
+/usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+                              ./src/cr_startup_lpc176x.o (__main)
+/usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+                              /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o) (__aeabi_uldivmod)
+
+Allocating common symbols
+Common symbol       size              file
+
+maxflashval         0x4               ./src/systick_twinkle.o
+flashval            0x4               ./src/systick_twinkle.o
+minflashval         0x4               ./src/systick_twinkle.o
+msTicks             0x4               ./src/systick_twinkle.o
+changeval           0x4               ./src/systick_twinkle.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ./src/cr_startup_lpc176x.o
+ .data          0x00000000        0x0 ./src/cr_startup_lpc176x.o
+ .bss           0x00000000        0x0 ./src/cr_startup_lpc176x.o
+ .text          0x00000000        0x0 ./src/leds.o
+ .data          0x00000000        0x0 ./src/leds.o
+ .bss           0x00000000        0x0 ./src/leds.o
+ .text.led2_invert
+                0x00000000       0x40 ./src/leds.o
+ .text          0x00000000        0x0 ./src/systick_twinkle.o
+ .data          0x00000000        0x0 ./src/systick_twinkle.o
+ .bss           0x00000000        0x0 ./src/systick_twinkle.o
+ .text          0x00000000        0x0 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .data          0x00000000        0x0 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .bss           0x00000000        0x0 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .text.SystemCoreClockUpdate
+                0x00000000       0xcc /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .text          0x00000000        0x0 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+ .data          0x00000000        0x0 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+ .bss           0x00000000        0x0 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+ .text          0x00000000        0x0 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .data          0x00000000        0x0 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .bss           0x00000000        0x0 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_idiv
+                0x00000000       0x10 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_idivmod
+                0x00000000       0x16 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_uidiv
+                0x00000000       0x10 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_uidivmod
+                0x00000000       0x16 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_ldivmod
+                0x00000000       0x26 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_uldivmod
+                0x00000000      0x174 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_idiv0
+                0x00000000        0x2 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_ldiv0
+                0x00000000        0x2 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+MFlash512        0x00000000         0x00080000         xr
+RamLoc32         0x10000000         0x00008000         xrw
+RamAHB32         0x2007c000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./src/cr_startup_lpc176x.o
+LOAD ./src/leds.o
+LOAD ./src/systick_twinkle.o
+LOAD /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a
+START GROUP
+LOAD /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a
+LOAD /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a
+END GROUP
+                0x00080000                __top_MFlash512 = 0x80000
+                0x10008000                __top_RamLoc32 = 0x10008000
+                0x20084000                __top_RamAHB32 = 0x20084000
+
+.text           0x00000000      0x6b4
+ FILL mask 0xff
+                0x00000000                __vectors_start__ = ABSOLUTE (.)
+ *(.isr_vector)
+ .isr_vector    0x00000000       0xcc ./src/cr_startup_lpc176x.o
+                0x00000000                g_pfnVectors
+                0x000000cc                . = ALIGN (0x4)
+                0x000000cc                __section_table_start = .
+                0x000000cc                __data_section_table = .
+                0x000000cc        0x4 LONG 0x6b4 LOADADDR (.data)
+                0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
+                0x000000d4        0x4 LONG 0x8 SIZEOF (.data)
+                0x000000d8        0x4 LONG 0x6b4 LOADADDR (.data_RAM2)
+                0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
+                0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
+                0x000000e4                __data_section_table_end = .
+                0x000000e4                __bss_section_table = .
+                0x000000e4        0x4 LONG 0x10000008 ADDR (.bss)
+                0x000000e8        0x4 LONG 0x18 SIZEOF (.bss)
+                0x000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
+                0x000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
+                0x000000f4                __bss_section_table_end = .
+                0x000000f4                __section_table_end = .
+ *(.after_vectors*)
+ .after_vectors
+                0x000000f4       0x78 ./src/cr_startup_lpc176x.o
+                0x000000f4                NMI_Handler
+                0x000000f6                HardFault_Handler
+                0x000000f8                MemManage_Handler
+                0x000000fa                BusFault_Handler
+                0x000000fc                UsageFault_Handler
+                0x000000fe                SVCall_Handler
+                0x00000100                DebugMon_Handler
+                0x00000102                PendSV_Handler
+                0x00000106                data_init
+                0x00000118                bss_init
+                0x00000128                ResetISR
+                0x00000168                TIMER2_IRQHandler
+                0x00000168                RIT_IRQHandler
+                0x00000168                I2C0_IRQHandler
+                0x00000168                USBActivity_IRQHandler
+                0x00000168                PWM1_IRQHandler
+                0x00000168                I2C1_IRQHandler
+                0x00000168                EINT2_IRQHandler
+                0x00000168                UART1_IRQHandler
+                0x00000168                EINT3_IRQHandler
+                0x00000168                CANActivity_IRQHandler
+                0x00000168                TIMER3_IRQHandler
+                0x00000168                UART0_IRQHandler
+                0x00000168                IntDefaultHandler
+                0x00000168                PLL0_IRQHandler
+                0x00000168                CAN_IRQHandler
+                0x00000168                PLL1_IRQHandler
+                0x00000168                SSP0_IRQHandler
+                0x00000168                I2S_IRQHandler
+                0x00000168                I2C2_IRQHandler
+                0x00000168                RTC_IRQHandler
+                0x00000168                TIMER0_IRQHandler
+                0x00000168                SPI_IRQHandler
+                0x00000168                EINT1_IRQHandler
+                0x00000168                TIMER1_IRQHandler
+                0x00000168                UART2_IRQHandler
+                0x00000168                ADC_IRQHandler
+                0x00000168                SSP1_IRQHandler
+                0x00000168                USB_IRQHandler
+                0x00000168                BOD_IRQHandler
+                0x00000168                WDT_IRQHandler
+                0x00000168                QEI_IRQHandler
+                0x00000168                EINT0_IRQHandler
+                0x00000168                DMA_IRQHandler
+                0x00000168                UART3_IRQHandler
+                0x00000168                MCPWM_IRQHandler
+                0x00000168                ENET_IRQHandler
+                0x000002fc                . = 0x2fc
+ *fill*         0x0000016c      0x190 ff
+                0x000002fc                PROVIDE (__CRP_WORD_START__, .)
+ *(.crp)
+ .crp           0x000002fc        0x4 ./src/systick_twinkle.o
+                0x000002fc                CRP_WORD
+                0x00000300                PROVIDE (__CRP_WORD_END__, .)
+                0x00000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
+ *(.text*)
+ .text.led2_init
+                0x00000300       0x3c ./src/leds.o
+                0x00000300                led2_init
+ .text.led2_on  0x0000033c       0x18 ./src/leds.o
+                0x0000033c                led2_on
+ .text.led2_off
+                0x00000354       0x18 ./src/leds.o
+                0x00000354                led2_off
+ .text.NVIC_SetPriority
+                0x0000036c       0x5c ./src/systick_twinkle.o
+ .text.SysTick_Config
+                0x000003c8       0x64 ./src/systick_twinkle.o
+ .text.SysTick_Handler
+                0x0000042c       0x24 ./src/systick_twinkle.o
+                0x0000042c                SysTick_Handler
+ .text.systick_delay
+                0x00000450       0x34 ./src/systick_twinkle.o
+ .text.main     0x00000484      0x148 ./src/systick_twinkle.o
+                0x00000484                main
+ .text.SystemInit
+                0x000005cc       0xe4 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x000005cc                SystemInit
+ .text.__weak_main
+                0x000006b0        0x4 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+                0x000006b0                __main
+                0x000006b0                __weak_main
+ *(.rodata .rodata.* .constdata .constdata.*)
+                0x000006b4                . = ALIGN (0x4)
+
+.glue_7         0x000006b4        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x000006b4        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x000006b4        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x000006b4        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x000006b4                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x000006b4                __exidx_end = .
+                0x000006b4                _etext = .
+
+.data_RAM2      0x2007c000        0x0 load address 0x000006b4
+ FILL mask 0xff
+ *(.data.$RAM2*)
+ *(.data.$RamAHB32*)
+                0x2007c000                . = ALIGN (0x4)
+
+.uninit_RESERVED
+                0x10000000        0x0
+ *(.bss.$RESERVED*)
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                _end_uninit_RESERVED = .
+
+.data           0x10000000        0x8 load address 0x000006b4
+ FILL mask 0xff
+                0x10000000                _data = .
+ *(vtable)
+ *(.data*)
+ .data.sign     0x10000000        0x4 ./src/systick_twinkle.o
+                0x10000000                sign
+ .data.SystemCoreClock
+                0x10000004        0x4 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x10000004                SystemCoreClock
+                0x10000008                . = ALIGN (0x4)
+                0x10000008                _edata = .
+
+.bss_RAM2       0x2007c000        0x0
+ *(.bss.$RAM2*)
+ *(.bss.$RamAHB32*)
+                0x2007c000                . = ALIGN (0x4)
+
+.bss            0x10000008       0x18
+                0x10000008                _bss = .
+ *(.bss*)
+ .bss.constflash
+                0x10000008        0x4 ./src/systick_twinkle.o
+                0x10000008                constflash
+ *(COMMON)
+ COMMON         0x1000000c       0x14 ./src/systick_twinkle.o
+                0x1000000c                maxflashval
+                0x10000010                flashval
+                0x10000014                minflashval
+                0x10000018                msTicks
+                0x1000001c                changeval
+                0x10000020                . = ALIGN (0x4)
+                0x10000020                _ebss = .
+                0x10000020                PROVIDE (end, .)
+
+.noinit_RAM2    0x2007c000        0x0
+ *(.noinit.$RAM2*)
+ *(.noinit.$RamAHB32*)
+                0x2007c000                . = ALIGN (0x4)
+
+.noinit         0x10000020        0x0
+                0x10000020                _noinit = .
+ *(.noinit*)
+                0x10000020                . = ALIGN (0x4)
+                0x10000020                _end_noinit = .
+                0x10000020                PROVIDE (_pvHeapStart, .)
+                0x10008000                PROVIDE (_vStackTop, (__top_RamLoc32 - 0x0))
+OUTPUT(LPCX176x_cmsis2_systick_twinkle.axf elf32-littlearm)
+
+.debug_info     0x00000000     0x1313
+ .debug_info    0x00000000      0x2dd ./src/cr_startup_lpc176x.o
+ .debug_info    0x000002dd      0x5d1 ./src/leds.o
+ .debug_info    0x000008ae      0x6d6 ./src/systick_twinkle.o
+ .debug_info    0x00000f84      0x38f /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_abbrev   0x00000000      0x4ad
+ .debug_abbrev  0x00000000      0x12b ./src/cr_startup_lpc176x.o
+ .debug_abbrev  0x0000012b       0xe6 ./src/leds.o
+ .debug_abbrev  0x00000211      0x1b9 ./src/systick_twinkle.o
+ .debug_abbrev  0x000003ca       0xe3 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_loc      0x00000000      0x2de
+ .debug_loc     0x00000000      0x102 ./src/cr_startup_lpc176x.o
+ .debug_loc     0x00000102       0xbc ./src/leds.o
+ .debug_loc     0x000001be      0x100 ./src/systick_twinkle.o
+ .debug_loc     0x000002be       0x20 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_aranges  0x00000000      0x120
+ .debug_aranges
+                0x00000000       0x80 ./src/cr_startup_lpc176x.o
+ .debug_aranges
+                0x00000080       0x38 ./src/leds.o
+ .debug_aranges
+                0x000000b8       0x40 ./src/systick_twinkle.o
+ .debug_aranges
+                0x000000f8       0x28 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_ranges   0x00000000       0xe0
+ .debug_ranges  0x00000000       0x70 ./src/cr_startup_lpc176x.o
+ .debug_ranges  0x00000070       0x28 ./src/leds.o
+ .debug_ranges  0x00000098       0x30 ./src/systick_twinkle.o
+ .debug_ranges  0x000000c8       0x18 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_line     0x00000000     0x10a0
+ .debug_line    0x00000000      0x3da ./src/cr_startup_lpc176x.o
+ .debug_line    0x000003da      0x3ea ./src/leds.o
+ .debug_line    0x000007c4      0x4dc ./src/systick_twinkle.o
+ .debug_line    0x00000ca0      0x400 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_macinfo  0x00000000    0x1cbd4
+ .debug_macinfo
+                0x00000000     0x3d45 ./src/cr_startup_lpc176x.o
+ .debug_macinfo
+                0x00003d45     0x8257 ./src/leds.o
+ .debug_macinfo
+                0x0000bf9c     0x8707 ./src/systick_twinkle.o
+ .debug_macinfo
+                0x000146a3     0x8531 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_str      0x00000000      0xa1f
+ .debug_str     0x00000000      0x268 ./src/cr_startup_lpc176x.o
+                                0x290 (size before relaxing)
+ .debug_str     0x00000268      0x2a6 ./src/leds.o
+                                0x3be (size before relaxing)
+ .debug_str     0x0000050e      0x37f ./src/systick_twinkle.o
+                                0x4dd (size before relaxing)
+ .debug_str     0x0000088d      0x192 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                                0x2b4 (size before relaxing)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 ./src/cr_startup_lpc176x.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ./src/leds.o
+ .comment       0x00000000       0x71 ./src/systick_twinkle.o
+ .comment       0x00000000       0x71 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .comment       0x00000000       0x71 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+
+.ARM.attributes
+                0x00000000       0x31
+ .ARM.attributes
+                0x00000000       0x33 ./src/cr_startup_lpc176x.o
+ .ARM.attributes
+                0x00000033       0x33 ./src/leds.o
+ .ARM.attributes
+                0x00000066       0x33 ./src/systick_twinkle.o
+ .ARM.attributes
+                0x00000099       0x33 /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .ARM.attributes
+                0x000000cc       0x33 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+ .ARM.attributes
+                0x000000ff       0x21 /usr/local/lpcxpresso_6.1.4_194/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m/libcr_eabihelpers.a(division.o)
+
+.debug_frame    0x00000000      0x240
+ .debug_frame   0x00000000       0xf4 ./src/cr_startup_lpc176x.o
+ .debug_frame   0x000000f4       0x74 ./src/leds.o
+ .debug_frame   0x00000168       0x9c ./src/systick_twinkle.o
+ .debug_frame   0x00000204       0x3c /home/lucasrangit/Workspaces/LPCXpresso/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
