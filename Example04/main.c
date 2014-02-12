@@ -43,10 +43,8 @@ void vTaskFunction( void *pvParameters );
 /* Define the strings that will be passed in as the task parameters.  These are
 defined const and off the stack to ensure they remain valid when the tasks are
 executing. */
-char *pcTextForTask1 = "Task 1 is running\n";
-char *pcTextForTask2 = "Task 2 is running\n";
-
-/* TODO why do they need to be defined as const? */
+const char *pcTextForTask1 = "Task 1 is running\n";
+const char *pcTextForTask2 = "Task 2 is running\n";
 
 /*-----------------------------------------------------------*/
 
