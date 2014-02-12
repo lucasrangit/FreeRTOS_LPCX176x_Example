@@ -1,7 +1,0 @@
-17:47:41 **** Clean-only build of configuration Debug for project FreeRTOS_Library ****
-make clean 
-rm -rf  ./portable/heap_2.o ./portable/port.o  ./demo_code/basic_io.o ./demo_code/consoleprint.o  ./list.o ./queue.o ./tasks.o  ./portable/heap_2.d ./portable/port.d  ./demo_code/basic_io.d ./demo_code/consoleprint.d  ./list.d ./queue.d ./tasks.d  libFreeRTOS_Library.a
- 
-
-17:47:41 Build Finished (took 55ms)
-
