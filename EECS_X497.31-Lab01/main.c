@@ -35,20 +35,24 @@ void vTaskWork( void *pvParameters );
 void vTaskExercise( void *pvParameters );
 
 /*
- * Define time constants using the scale of 24 hours to 1 minutes.
+ * Define time constants using the scale of 1 day to MN_PER_DAY minutes.
  * Uses the units of ticks for convenience with FreeRTOS API.
  */
-#define TICKS_PER_MS 			portTICK_RATE_MS // ticks/ms
-#define MS_PER_S 				1000
-#define S_PER_MN 				60
-#define MN_PER_HR 				60
-#define SIX_OCLOCK_TICKS		6  * S_PER_MN * MS_PER_S * TICKS_PER_MS * 1 / 24
-#define EIGHT_OCLOCK_TICKS		8  * S_PER_MN * MS_PER_S * TICKS_PER_MS * 1 / 24
-#define TWELVE_OCLOCK_TICKS		12 * S_PER_MN * MS_PER_S * TICKS_PER_MS * 1 / 24
-#define NINETEEN_OCLOCK_TICKS	19 * S_PER_MN * MS_PER_S * TICKS_PER_MS * 1 / 24
-#define TWENTYTWO_OCLOCK_TICKS	22 * S_PER_MN * MS_PER_S * TICKS_PER_MS * 1 / 24
-#define FIFTEEN_MN_TICKS 		15 * S_PER_MN * MS_PER_S * TICKS_PER_MS * 1 / 24
-#define ONE_HR_TICKS 			FIFTEEN_MN_TICKS * 4 					* 1 / 24
+#define MN_PER_DAY					1
+#define TICKS_PER_MS 				portTICK_RATE_MS // ticks/ms
+#define MS_PER_S 					1000
+#define S_PER_MN 					60
+#define MN_PER_HR 					60
+#define HR_PER_DAY					24
+#define CLOCK_TO_TICKS(hour)		(hour * S_PER_MN * MS_PER_S * TICKS_PER_MS * MN_PER_DAY / HR_PER_DAY)
+#define SIX_OCLOCK_TICKS			CLOCK_TO_TICKS(6)
+#define EIGHT_OCLOCK_TICKS			CLOCK_TO_TICKS(8)
+#define TWELVE_OCLOCK_TICKS			CLOCK_TO_TICKS(12)
+#define NINETEEN_OCLOCK_TICKS		CLOCK_TO_TICKS(19)
+#define TWENTYTWO_OCLOCK_TICKS		CLOCK_TO_TICKS(22)
+#define MINUTES_TO_TICKS(minutes) 	(minutes * S_PER_MN * MS_PER_S * TICKS_PER_MS * MN_PER_DAY / HR_PER_DAY)
+#define FIFTEEN_MN_TICKS 			MINUTES_TO_TICKS(15)
+#define ONE_HR_TICKS 				MINUTES_TO_TICKS(60)
 
 typedef enum {
 	MEAL_BREAKFAST,
@@ -129,15 +133,17 @@ void vTaskMeal( void *pvParameters )
 	char message[120];
 
 	/* Print out the name of this task. */
-	vPrintString( "Meal task start\n" );
+	vPrintString( "START: Meal task\n" );
 
 	for( ;; )
 	{
-		xCurrentTicks = xTaskGetTickCount();
-
 		xStatus = xQueueReceive(xQueueMeals, &xMealNext, 0);
-		if (pdPASS != xStatus)
+		if (pdPASS != xStatus) {
+			vPrintString("No more meals\n");
 			goto abort;
+		}
+
+		xCurrentTicks = xTaskGetTickCount();
 
 		xDelayTicks = xMealNext.xStart - xCurrentTicks;
 //		sprintf(message, "Meal task is waiting %d ticks for %s\n", xDelayTicks, pcMealNames[xMealNext.xId]);
@@ -146,26 +152,26 @@ void vTaskMeal( void *pvParameters )
 		/* delay until event start */
 		vTaskDelay( xDelayTicks );
 
-		sprintf(message, "Time for %s\n", pcMealNames[xMealNext.xId]);
-		vPrintString(message);
+		sprintf(message, "Eat %s @", pcMealNames[xMealNext.xId]);
+		vPrintStringAndNumber(message, xTaskGetTickCount());
 	}
 
 
 	abort:
-	vPrintString( "Meal task stop\n" );
+	vPrintString( "STOP: Meal task\n" );
 	vTaskDelete(NULL);
 }
 
 void vTaskExercise( void *pvParameters )
 {
 	/* Print out the name of this task. */
-	vPrintString( "Exercise task start\n" );
+	vPrintString( "START: Exercise task\n" );
 
 	for( ;; )
 	{
 		xSemaphoreTake(xSemaphoreExercise, portMAX_DELAY);
 
-		vPrintString( "Time for a stretch...\n" );
+		vPrintStringAndNumber( "Time for a stretch @" , xTaskGetTickCount());
 	}
 
 	for( ;; );
@@ -178,20 +184,25 @@ void vTaskWork( void *pvParameters )
 	portTickType xCurrentTicks;
 
 	/* Print out the name of this task. */
-	vPrintString( "Work task start\n" );
+	vPrintString( "START: Work task\n" );
 
 	for( ;; )
 	{
 		xCurrentTicks = xTaskGetTickCount();
 
-		if (xCurrentTicks > TWENTYTWO_OCLOCK_TICKS) {
-			vPrintString( "Time for bed...\n" );
+		if (xCurrentTicks >= TWENTYTWO_OCLOCK_TICKS) {
+			vPrintStringAndNumber( "Bed time @", xTaskGetTickCount());
 			goto abort;
 		}
-
-		if (xCurrentTicks > EIGHT_OCLOCK_TICKS) {
-			vPrintString( "Writing code...\n" );
+		else if (xCurrentTicks >= EIGHT_OCLOCK_TICKS) {
+			vPrintStringAndNumber( "Writing code @", xTaskGetTickCount());
 			uxLoopCount++;
+		}
+		else if (xCurrentTicks >= SIX_OCLOCK_TICKS) {
+			vPrintStringAndNumber( "Taking train to work @", xTaskGetTickCount());
+		}
+		else if (xCurrentTicks < SIX_OCLOCK_TICKS) {
+			vPrintStringAndNumber( "Sleeping @", xTaskGetTickCount());
 		}
 
 		if (uxLoopCount > 10) {
@@ -204,7 +215,7 @@ void vTaskWork( void *pvParameters )
 	}
 
 	abort:
-	vPrintString( "Work task stop\n" );
+	vPrintString( "STOP: Work task\n" );
 	vTaskDelete(NULL);
 }
 
