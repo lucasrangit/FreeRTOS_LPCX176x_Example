@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>CMSISv1p30_LPC17xx</project>
+		<project>timer</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

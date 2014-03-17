@@ -23,6 +23,7 @@
 #include "task.h"
 #include "queue.h"
 #include "semphr.h"
+#include "timer.h"
 
 /* Demo includes. */
 #include "basic_io.h"
@@ -92,6 +93,12 @@ int main(void)
 	int i;
 
 	printf( "\n" ); /* initialize the semi-hosting. */
+
+	/* SystemCoreClockUpdate() updates the SystemCoreClock variable */
+	SystemCoreClockUpdate();
+
+	/* setup timer */
+
 
 	xQueueMeals = xQueueCreate( sizeof(xMeals)/sizeof(xMeal), sizeof( xMeal ) );
 	portTickType xOnTimeTicks = xTaskGetTickCount();
