@@ -304,8 +304,8 @@ uint32_t init_timer ( uint8_t timer_num, uint32_t TimerInterval )
 	}
 	LPC_TIM0->PR  = pclk/1000000; /* set prescaler to get 1 M counts/sec */
 
-	LPC_TIM0->MR0 = TIME_INTERVALmS * 10; /* Set up 10 mS interval */
-	LPC_TIM0->MR1 = TIME_INTERVALmS * 10; /* Set up 10 mS interval */
+	LPC_TIM0->MR0 = TIME_INTERVALmS * TimerInterval; /* Set up interval */
+	LPC_TIM0->MR1 = TIME_INTERVALmS * TimerInterval; /* Set up interval */
 #if TIMER_MATCH
 	LPC_TIM0->EMR &= ~(0xFF<<4);
 	LPC_TIM0->EMR |= ((0x3<<4)|(0x3<<6));

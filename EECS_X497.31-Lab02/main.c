@@ -87,6 +87,27 @@ static xMeal xMeals[3] =
 
 static xSemaphoreHandle xSemaphoreExercise;
 
+extern volatile uint32_t timer0_m0_counter;
+
+static void setup_timer()
+{
+	/* SystemCoreClockUpdate() updates the SystemCoreClock variable */
+	SystemCoreClockUpdate();
+
+	/* set ISR handler */
+	NVIC_SetPriority( TIMER0_IRQn, 29);
+
+	/* setup timer 0 with 1 ms interval */
+	init_timer(0, 1);
+
+	enable_timer(0);
+}
+
+static unsigned portLONG read_timer()
+{
+	return timer0_m0_counter;
+}
+
 int main(void)
 {
 	portBASE_TYPE xStatus = 0;
@@ -94,11 +115,7 @@ int main(void)
 
 	printf( "\n" ); /* initialize the semi-hosting. */
 
-	/* SystemCoreClockUpdate() updates the SystemCoreClock variable */
-	SystemCoreClockUpdate();
-
-	/* setup timer */
-
+	setup_timer();
 
 	xQueueMeals = xQueueCreate( sizeof(xMeals)/sizeof(xMeal), sizeof( xMeal ) );
 	portTickType xOnTimeTicks = xTaskGetTickCount();
@@ -136,6 +153,7 @@ void vTaskMeal( void *pvParameters )
 	portBASE_TYPE xStatus = 0;
 	portTickType xCurrentTicks;
 	portTickType xDelayTicks;
+	unsigned portLONG ulTimerValue = 0;
 	xMeal xMealNext;
 	char message[120];
 
@@ -145,6 +163,7 @@ void vTaskMeal( void *pvParameters )
 	for( ;; )
 	{
 		xStatus = xQueueReceive(xQueueMeals, &xMealNext, 0);
+		ulTimerValue = read_timer();
 		if (pdPASS != xStatus) {
 			vPrintString("No more meals\n");
 			goto abort;
@@ -160,7 +179,7 @@ void vTaskMeal( void *pvParameters )
 		vTaskDelay( xDelayTicks );
 
 		sprintf(message, "Eat %s @", pcMealNames[xMealNext.xId]);
-		vPrintStringAndNumber(message, xTaskGetTickCount());
+		vPrintStringAndNumbers(message, xTaskGetTickCount(), ulTimerValue);
 	}
 
 
@@ -173,12 +192,14 @@ void vTaskExercise( void *pvParameters )
 {
 	/* Print out the name of this task. */
 	vPrintString( "START: Exercise task\n" );
+	unsigned portLONG ulTimerValue = 0;
 
 	for( ;; )
 	{
 		xSemaphoreTake(xSemaphoreExercise, portMAX_DELAY);
+		ulTimerValue = read_timer();
 
-		vPrintStringAndNumber( "Time for a stretch @" , xTaskGetTickCount());
+		vPrintStringAndNumbers( "Time for a stretch @" , xTaskGetTickCount(), ulTimerValue);
 	}
 
 	for( ;; );
@@ -189,6 +210,7 @@ void vTaskWork( void *pvParameters )
 	const portTickType xDelayTicks1S = 1 * MS_PER_S / portTICK_RATE_MS;
 	unsigned portBASE_TYPE uxLoopCount = 0;
 	portTickType xCurrentTicks;
+	unsigned portLONG ulTimerValue = 0;
 
 	/* Print out the name of this task. */
 	vPrintString( "START: Work task\n" );
@@ -196,20 +218,21 @@ void vTaskWork( void *pvParameters )
 	for( ;; )
 	{
 		xCurrentTicks = xTaskGetTickCount();
+		ulTimerValue = read_timer();
 
 		if (xCurrentTicks >= TWENTYTWO_OCLOCK_TICKS) {
-			vPrintStringAndNumber( "Bed time @", xTaskGetTickCount());
+			vPrintStringAndNumbers( "Bed time @", xTaskGetTickCount(), ulTimerValue);
 			goto abort;
 		}
 		else if (xCurrentTicks >= EIGHT_OCLOCK_TICKS) {
-			vPrintStringAndNumber( "Writing code @", xTaskGetTickCount());
+			vPrintStringAndNumbers( "Writing code @", xTaskGetTickCount(), ulTimerValue);
 			uxLoopCount++;
 		}
 		else if (xCurrentTicks >= SIX_OCLOCK_TICKS) {
-			vPrintStringAndNumber( "Taking train to work @", xTaskGetTickCount());
+			vPrintStringAndNumbers( "Taking train to work @", xTaskGetTickCount(), ulTimerValue);
 		}
 		else if (xCurrentTicks < SIX_OCLOCK_TICKS) {
-			vPrintStringAndNumber( "Sleeping @", xTaskGetTickCount());
+			vPrintStringAndNumbers( "Sleeping @", xTaskGetTickCount(), ulTimerValue);
 		}
 
 		if (uxLoopCount > 10) {
