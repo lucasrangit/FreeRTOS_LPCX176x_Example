@@ -3,8 +3,8 @@
 	<name>EECS_X497.31-Lab02</name>
 	<comment></comment>
 	<projects>
-		<project>CMSISv1p30_LPC17xx</project>
-		<project>timer</project>
+		<project>CMSISv2p00_LPC17xx</project>
+		<project>FreeRTOS_Library</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
