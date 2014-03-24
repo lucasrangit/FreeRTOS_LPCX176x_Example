@@ -163,7 +163,6 @@ void vTaskMeal( void *pvParameters )
 	for( ;; )
 	{
 		xStatus = xQueueReceive(xQueueMeals, &xMealNext, 0);
-		ulTimerValue = read_timer();
 		if (pdPASS != xStatus) {
 			vPrintString("No more meals\n");
 			goto abort;
@@ -178,10 +177,12 @@ void vTaskMeal( void *pvParameters )
 		/* delay until event start */
 		vTaskDelay( xDelayTicks );
 
+		/* time-stamp of event */
+		ulTimerValue = read_timer();
+
 		sprintf(message, "Eat %s @", pcMealNames[xMealNext.xId]);
 		vPrintStringAndNumbers(message, xTaskGetTickCount(), ulTimerValue);
 	}
-
 
 	abort:
 	vPrintString( "STOP: Meal task\n" );
