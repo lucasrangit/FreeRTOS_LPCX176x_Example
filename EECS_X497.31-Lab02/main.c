@@ -208,6 +208,7 @@ void vTaskExercise( void *pvParameters )
 
 void vTaskWork( void *pvParameters )
 {
+	portTickType xLastWakeTicks = xTaskGetTickCount(); /* initialize to current tick value */
 	const portTickType xDelayTicks1S = 1 * MS_PER_S / portTICK_RATE_MS;
 	unsigned portBASE_TYPE uxLoopCount = 0;
 	portTickType xCurrentTicks;
@@ -242,7 +243,7 @@ void vTaskWork( void *pvParameters )
 		}
 
 		/* delay until event start */
-		vTaskDelay( xDelayTicks1S );
+		vTaskDelayUntil(&xLastWakeTicks, xDelayTicks1S);
 	}
 
 	abort:
