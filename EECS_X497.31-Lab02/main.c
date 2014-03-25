@@ -95,7 +95,7 @@ static void setup_timer()
 	SystemCoreClockUpdate();
 
 	/* set ISR handler */
-	NVIC_SetPriority( TIMER0_IRQn, 29);
+	NVIC_SetPriority(TIMER0_IRQn, 29);
 
 	/* setup timer 0 with 1 ms interval */
 	init_timer(0, 1);
@@ -105,7 +105,16 @@ static void setup_timer()
 
 static unsigned portLONG read_timer()
 {
-	return timer0_m0_counter;
+	unsigned portLONG ulTimerValue;
+
+	/* Critical section required if running on a 16 bit processor. */
+	portENTER_CRITICAL();
+	{
+		ulTimerValue = timer0_m0_counter;
+	}
+	portEXIT_CRITICAL();
+
+	return ulTimerValue;
 }
 
 int main(void)
