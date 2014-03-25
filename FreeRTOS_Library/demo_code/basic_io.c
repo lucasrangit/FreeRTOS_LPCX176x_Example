@@ -63,4 +63,14 @@ void vPrintStringAndNumber( const char *pcString, unsigned long ulValue )
 	xTaskResumeAll();
 }
 
-
+void vPrintStringAndNumbers( const char *pcString, unsigned long ulValue, unsigned portLONG ulValue2 )
+{
+	/* Print the string, suspending the scheduler as method of mutual
+	exclusion. */
+	vTaskSuspendAll();
+	{
+		sprintf( cBuffer, "%s %lu %lu\n", pcString, ulValue, ulValue2 );
+		consoleprint( cBuffer );
+	}
+	xTaskResumeAll();
+}

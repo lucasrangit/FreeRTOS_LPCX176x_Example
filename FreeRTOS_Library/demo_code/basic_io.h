@@ -35,6 +35,7 @@
 
 void vPrintString( const portCHAR *pcString );
 void vPrintStringAndNumber( const portCHAR *pcString, unsigned portLONG ulValue );
+void vPrintStringAndNumbers( const portCHAR *pcString, unsigned portLONG ulValue, unsigned portLONG ulValue2 );
 
 #endif
 
