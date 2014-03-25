@@ -51,7 +51,7 @@ void vTaskExercise( void *pvParameters );
 #define TWELVE_OCLOCK_TICKS			CLOCK_TO_TICKS(12)
 #define NINETEEN_OCLOCK_TICKS		CLOCK_TO_TICKS(19)
 #define TWENTYTWO_OCLOCK_TICKS		CLOCK_TO_TICKS(22)
-#define MINUTES_TO_TICKS(minutes) 	(minutes * S_PER_MN * MS_PER_S * TICKS_PER_MS * MN_PER_DAY / HR_PER_DAY)
+#define MINUTES_TO_TICKS(minutes) 	(minutes * S_PER_MN * MS_PER_S * TICKS_PER_MS * MN_PER_DAY / (HR_PER_DAY * MN_PER_HR))
 #define FIFTEEN_MN_TICKS 			MINUTES_TO_TICKS(15)
 #define ONE_HR_TICKS 				MINUTES_TO_TICKS(60)
 
@@ -162,9 +162,11 @@ void vTaskMeal( void *pvParameters )
 	portBASE_TYPE xStatus = 0;
 	portTickType xCurrentTicks;
 	portTickType xDelayTicks;
+	portTickType xDurationTicks;
 	unsigned portLONG ulTimerValue = 0;
 	xMeal xMealNext;
 	char message[120];
+	volatile unsigned long ul;
 
 	/* Print out the name of this task. */
 	vPrintString( "START: Meal task\n" );
@@ -178,19 +180,27 @@ void vTaskMeal( void *pvParameters )
 		}
 
 		xCurrentTicks = xTaskGetTickCount();
-
 		xDelayTicks = xMealNext.xStart - xCurrentTicks;
-//		sprintf(message, "Meal task is waiting %d ticks for %s\n", xDelayTicks, pcMealNames[xMealNext.xId]);
-//		vPrintString(message);
 
 		/* delay until event start */
 		vTaskDelay( xDelayTicks );
 
 		/* time-stamp of event */
 		ulTimerValue = read_timer();
+		xCurrentTicks = xTaskGetTickCount();
+
+		/* duration of event */
+		xDurationTicks = xMealNext.xDuration + ulTimerValue;
 
 		sprintf(message, "Eat %s @", pcMealNames[xMealNext.xId]);
-		vPrintStringAndNumbers(message, xTaskGetTickCount(), ulTimerValue);
+		vPrintStringAndNumbers(message, xCurrentTicks, ulTimerValue);
+
+		/* consume meal */
+		/* This loop is just a very crude delay implementation. There is
+		 * nothing to do in here besides keep the CPU busy. */
+		for( ul = 0; read_timer() < xDurationTicks; ul++ )
+			asm volatile( "NOP" );
+		xCurrentTicks = xTaskGetTickCount(); // debug to measure duration of busy loop
 	}
 
 	abort:
@@ -217,7 +227,6 @@ void vTaskExercise( void *pvParameters )
 
 void vTaskWork( void *pvParameters )
 {
-	portTickType xLastWakeTicks = xTaskGetTickCount(); /* initialize to current tick value */
 	const portTickType xDelayTicks1S = 1 * MS_PER_S / portTICK_RATE_MS;
 	unsigned portBASE_TYPE uxLoopCount = 0;
 	portTickType xCurrentTicks;
@@ -252,7 +261,7 @@ void vTaskWork( void *pvParameters )
 		}
 
 		/* delay until event start */
-		vTaskDelayUntil(&xLastWakeTicks, xDelayTicks1S);
+		vTaskDelay(xDelayTicks1S);
 	}
 
 	abort:
