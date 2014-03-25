@@ -152,8 +152,10 @@
 								</option>
 								<option id="gnu.c.link.option.paths.892441182" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CMSISv2p00_LPC17xx/Release}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeRTOS_Library/Release}&quot;"/>
 								</option>
 								<option id="com.crt.advproject.link.crpenable.509940489" name="Enable Code Read Protect" superClass="com.crt.advproject.link.crpenable"/>
+								<option id="com.crt.advproject.link.gcc.multicore.slave.2028095596" name="Multicore slave" superClass="com.crt.advproject.link.gcc.multicore.slave"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1618551105" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -260,10 +262,10 @@
 		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.496534636;com.crt.advproject.config.exe.debug.496534636.;com.crt.advproject.gas.exe.debug.1947422567;com.crt.advproject.assembler.input.1750926331">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.release.80584660;com.crt.advproject.config.exe.release.80584660.;com.crt.advproject.gas.exe.release.270180823;com.crt.advproject.assembler.input.1922828450">
+		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.496534636;com.crt.advproject.config.exe.debug.496534636.;com.crt.advproject.gcc.exe.debug.718634965;com.crt.advproject.compiler.input.436820659">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.496534636;com.crt.advproject.config.exe.debug.496534636.;com.crt.advproject.gcc.exe.debug.718634965;com.crt.advproject.compiler.input.436820659">
+		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.release.80584660;com.crt.advproject.config.exe.release.80584660.;com.crt.advproject.gas.exe.release.270180823;com.crt.advproject.assembler.input.1922828450">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
